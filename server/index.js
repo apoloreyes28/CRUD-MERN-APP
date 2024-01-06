@@ -12,6 +12,18 @@ mongoose.connect("mongodb://localhost:27017/crud");
 // cadena de conexión (string connection)   nombre de la BdeD
 
 
+// mostramos los datos
+app.get('/', (req, res) => {
+
+    // usamos el modelo
+    UserModel.find({})
+    // este método nos permite buscar en la matriz de resultados (usuarios)
+
+    .then(users => res.json(users))
+    .catch(err => res.json(err))  
+})
+
+
 // creamos los datos
 app.post("/createUser", (req, res) => {
     /*
