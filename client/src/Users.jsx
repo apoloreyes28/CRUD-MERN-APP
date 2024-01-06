@@ -15,6 +15,7 @@ function Users() {
                 {/* este Link (ruta, enlace) nos permite movernos (cambiar) de página (enrutar) */}
                 <Link to="/create" className='btn btn-success'>Add +</Link>
 
+                {/* <h2>Register Table</h2> */}
                 <table className='table'>
                     <thead>
                         {/* encabezado de la tabla */}
@@ -33,7 +34,11 @@ function Users() {
                                     <td>{user.Name}</td>
                                     <td>{user.Email}</td>
                                     <td>{user.Age}</td>
-                                    <td><button>Edit</button><button>Delete</button></td>
+                                    <td>
+                                        <Link to="/update" className='btn btn-success'>Update</Link>
+
+                                        <button>Delete</button>
+                                    </td>
                                 </tr>
                             })
                         }
