@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
         .then(users => res.json(users))
         .catch(err => res.json(err))
-})
+});
 
 
 // obtenemos los datos
@@ -52,7 +52,20 @@ app.put('/updateUser/:id', (req, res) => {
 
         .then(users => res.json(users))
         .catch(err => res.json(err))
-})
+});
+
+
+// eliminamos los datos
+app.delete('/deleteUser/:id', (req, res) => {
+
+    // obtenemos el ID
+    const id = req.params.id;
+
+    // usamos el modelo
+    UserModel.findByIdAndDelete({ _id: id })
+        .then(res => res.json(res))
+        .catch(err => res.json(err))
+});
 
 
 // creamos los datos
