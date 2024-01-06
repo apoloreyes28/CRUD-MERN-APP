@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-function CreateUser() {
+function CreateUser(){
 
     // creamos las variables para almacenar los datos introducidos en los campos de entrada
     const [name, setName] = useState();
@@ -24,7 +24,7 @@ function CreateUser() {
         .catch(err => console.log(err))
     }
 
-    return (
+    return(
         <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
             <div className='w-50 bg-white rounded p-3'>
             <form onSubmit={Submit}>
@@ -43,7 +43,7 @@ function CreateUser() {
                     <input 
                         type="email" 
                         placeholder='Enter Email' 
-                        className='form-control' 
+                        className='form-control'
                         onChange={(e)=> setEmail(e.target.value)} 
                     />
                 </div>
@@ -52,8 +52,8 @@ function CreateUser() {
                     <input 
                         type="text" 
                         placeholder='Enter Age' 
-                        className='form-control'
-                        onChange={(e)=> setAge(e.target.value)} 
+                        className='form-control' 
+                        onChange={(e)=> setAge(e.target.value)}
                     />
                 </div>
                 <button className='btn btn-success'>Submit</button>

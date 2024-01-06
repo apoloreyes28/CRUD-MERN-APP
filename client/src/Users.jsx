@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 
-function Users() {
+function Users(){
 
     // para mostrar los datos dinámicamente
     const [users, setUsers] = useState([]);
     // en esta matriz (arreglo, lista) mostraremos el conjunto de resultados (usuarios)
-
 
     // mostramos los datos (records, registros) en la pantalla cada 
     // vez que accedemos a la API
@@ -17,14 +16,15 @@ function Users() {
         .catch(err => console.log(err))
     }, [])
 
-    return (
+    return(
         <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
             <div className='w-50 bg-white rounded p-3'>
 
-                {/* este Link (ruta, enlace) nos permite movernos (cambiar) de página (enrutar) */}
-                <Link to="/create" className='btn btn-success'>Add +</Link>
+            <h2>Register Table</h2>
 
-                {/* <h2>Register Table</h2> */}
+            {/* este Link (ruta, enlace) nos permite movernos (cambiar) de página (enrutar) */}
+            <Link to="/create" className='btn btn-success'>Add +</Link>
+
                 <table className='table'>
                     <thead>
                         {/* encabezado de la tabla */}
@@ -44,8 +44,8 @@ function Users() {
                                     <td>{user.email}</td>
                                     <td>{user.age}</td>
                                     <td>
-                                        <Link to="/update" className='btn btn-success'>Update</Link>
-
+                                        {/* seleccionamos al usuario usando su ID (obteneemos su ID para realizar dicha acción) */}
+                                        <Link to={`/update/${user._id}`} className='btn btn-success'>Update</Link>
                                         <button className='btn btn-danger'>Delete</button>
                                     </td>
                                 </tr>
@@ -53,7 +53,6 @@ function Users() {
                         }
                     </tbody>
                 </table>
-
             </div>
         </div>
     )
